@@ -1,36 +1,14 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-	<h1>Weather API</h1>
+    <button id="weatherButton">Get Current Weather</button>
+    <div id="weatherData"></div>
 
-	<button id="weather">Get Current Weather</button>
-	<div id="weatherData"></div>
-    <script>
-        var button = document.getElementById('weather');
-var weatherDiv = document.getElementById('weatherData');
-
-// Add event listener to the button
-button.addEventListener('click', function() {
-    // Use fetch to get the weather data
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_ACTUAL_API_KEY')
-    .then(response => response.json())
-    .then(data => {
-        // Update the div with the weather data
-        weatherDiv.innerHTML = 'Current weather in London: ' + data.weather[0].main;
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-		
-</script>
-
+    <script src="app.js"></script>
 </body>
-
 </html>
