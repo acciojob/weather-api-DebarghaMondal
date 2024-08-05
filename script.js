@@ -1,14 +1,14 @@
-//your JS code here. If required.
-document.getElementById('weatherButton').addEventListener('click', function() {
-  // Send a GET request to the OpenWeatherMap API
-  fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=999b280e8a2bab87c04ce16c25e1420c')
-	.then(response => response.json())
-	.then(data => {
-	  // Extract and format the weather data
-	  var weatherDescription = data.weather[0].description;
-	  var message = 'Current weather in London: '+weatherDescription;
-	  // Update the weatherData div with the weather information
-	  document.getElementById('weatherData').textContent = message;
-	})
-	.catch(error => console.log(error)); // Handle any errors that occur during the fetch request
+var button = document.getElementById('weather');
+var weatherDiv = document.getElementById('weatherData');
+
+// Add event listener to the button
+button.addEventListener('click', function() {
+    // Use fetch to get the weather data
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY')
+    .then(response => response.json())
+    .then(data => {
+        // Update the div with the weather data
+        weatherDiv.innerHTML = 'Current weather in London: ' + data.weather[0].main;
+    })
+    .catch(error => console.error('Error:', error));
 });
